@@ -1,0 +1,33 @@
+HomeWell-Health
+=========
+
+
+Descripción
+-----------
+*HomeWell-Health* O proxecto HomeWell-Health consiste no desenvolvemento e implementación dunha plataforma independente de monitorización para o seguimento de pacientes con insuficiencia cardíaca nos seus fogares.
+
+
+
+Dispoñibilidade
+------------
+
+Podes atopar máis información sobre HOMEWELL-HEALTH en
+http://webs.wirelessgalicia.com/homewellhealth/
+
+A última versión deste proxecto está siempre dispoñible no GitHub:
+repository at https://github.com/wirelessgalicia/HomeWell-Health.
+
+Podes atopar máis información sobre OSGI en:
+http://sourceforge.net/projects/osgi/
+
+
+
+Licenza
+-------
+
+*HomeWell-Health* está liberado baixo os termos da licenza Mozilla Public License (MPL) License version 1.1 [1]_.
+
+Por favor lea o arquivo ``license`` para máis detalles.
+
+
+[1] http://www.mozilla.org/MPL/
