@@ -1,0 +1,674 @@
+/*
+ * This file is part of HomeWell-Health
+ *
+ * Copyright (C) 2011-2012 WirelessGalicia S.L.
+ *
+ * The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ * 
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations
+ * under the License.
+ * 
+ */
+
+body {
+background:url(../images/bg.gif) repeat;
+margin:0px;
+padding:0px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#876039;
+}
+.legend_x{
+width:20px;
+color:#404040;
+font-size:12px;
+padding:1px 1px 1px 180px;
+font-style: italic;
+line-height: 12px;
+}
+.font_grafica{
+font-size: 16px;
+}
+p{
+text-align:justify;
+line-height:18px;
+font-weight:bold;
+font-style:italic;
+padding:5px 0 5px 0;
+margin:0px;
+}
+p.tab_content{
+width:200px;
+padding:75px 15px 0 15px;
+margin:0px;
+}
+
+p.tab_content_prueba{
+width:250px;
+padding:115px 15px 10px 15px;
+margin:0px;
+}
+
+a.read_more{
+float:right;
+padding:0 15px 0 0;
+}
+.clear{
+clear:both;
+}
+
+.col1,
+.col2,
+.col3,
+.col4,
+.col5
+{float:left;margin:10px}
+
+.col1_ini{
+	float:left;
+	width:250px;
+}
+
+.col_ini_pulso{
+	float:left;
+	width:650px;
+}
+
+.colBascula1,
+.colBascula2,
+.colBascula3
+{
+float:left;
+margin:15px;
+width:239px;
+}
+
+.colLarge
+{
+width:590px;
+}
+.colPararPulso{
+	width:90px;
+}
+	
+.colLarge_rpm{
+	width:570px;
+}
+
+.colRight{
+float:right;
+}
+
+.colLeft{
+float:left;
+}
+
+.idioma{
+	text-decoration:none;
+}
+
+.col_desc{
+	float:left;
+	margin:15px;
+	width:239px;
+}
+
+a.button{
+background:url(../images/button.png);
+display:block;
+color:#555555;
+font-weight:bold;
+height:178px;
+line-height:29px;
+margin-bottom:14px;
+text-decoration:none;
+width:239px;
+font-size: large;
+}
+
+a:hover.button{
+color:#0066CC;
+}
+
+.pulso{
+background:url(../images/d_pulso.gif) no-repeat 18px 15px;
+text-indent:70px;
+height:109px;
+display:block;
+padding: 120px 0 0 0;
+}
+
+.bascula_pulso_ciclo{
+background:url(../images/bascula_pulso_ciclo.png) no-repeat 1px 15px;
+text-indent:70px;
+height:109px;
+display:block;
+padding: 120px 0 0 0;
+}
+
+.bascula_pulso{
+background:url(../images/bascula_pulso.png) no-repeat 1px 15px;
+text-indent:70px;
+height:109px;
+display:block;
+padding: 120px 0 0 0;
+}
+
+.pulso_ciclo{
+background:url(../images/pulso_ciclo.png) no-repeat 18px 15px;
+text-indent:70px;
+height:109px;
+display:block;
+padding: 120px 0 0 0;
+}
+
+.ciclo{
+background:url(../images/ciclo.png) no-repeat 18px 15px;
+text-indent:70px;
+height:109px;
+display:block;
+padding: 120px 0 0 0;
+}
+
+.tension{
+background:url(../images/d_tension.gif) no-repeat 18px 15px;
+text-indent:70px;
+height:109px;
+display:block;
+padding: 120px 0 0 0;
+}
+
+.peso{
+background:url(../images/bascula.gif) no-repeat 18px 8px;
+text-indent:70px;
+height:109px;
+display:block;
+padding: 140px 0 0 15px;
+}
+
+.desc_bascula{
+ width: 200px;
+ height: 200px;
+ }
+
+.bascula{
+width:220px;
+height:250px;
+border:2px #c3b688 solid;
+background-color:#f2edd1;
+color: #89613a;
+text-align: center;
+font-size: large;
+padding: 10px;
+}
+
+.enlace_parar,
+.enlace_reprogramar{
+width:120px;
+height:25px;
+border:2px #c3b688 solid;
+background-color:#f2edd1;
+text-align: center;
+font-size: large;
+padding: 10px;
+color:#E77330;
+float:left;
+font-weight:bold;
+}
+
+.col3.bascula{
+width:320px;
+height:350px;
+align: center;	
+}
+
+#txtPeso{
+ font-size: 100px;
+ width:200px;
+ height:210px;
+ font-family: Arial;
+ color: #89613A;
+ text-align: center;
+}
+
+#txtKg{
+ font-size: 30px;
+ font-family: Arial;
+ color: #89613A;
+ text-align: center;
+}
+
+
+.ul_event {
+ border: 0px solid;
+ width: 300px;
+ height: 200px;
+ list-style: none;
+ padding: 10px 0px 0px 8px;
+}
+
+
+.li_event {
+ background: #e5dfbb;
+ border: 4px dotted #876039;
+ height: 25px;
+ padding: 15px;
+ font-size: medium;
+}
+
+#main_container{
+height:auto;
+margin:auto;
+background:url(../images/banner_marron2.gif) no-repeat center top;
+}
+
+#scroll_container{
+	width:760px;
+    height:240px;
+    background:url(../images/bg_scroll.gif) no-repeat center top;
+}
+
+
+#alarma_container{
+width:450px;
+height:23px;
+border:2px #c3b688 solid;
+background-color:#f2edd1;
+color: #89613a;
+text-align: center;
+font-size: medium;
+}
+
+#errorContainer{
+width:250px;
+height:23px;
+border:2px #c3b688 solid;
+background-color:#f2edd1;
+color: #89613a;
+text-align: center;
+font-size: medium;
+}
+
+#alarmas_container{
+float:left;
+margin:10px;
+}
+	
+.alarmas_container_hidden{
+display:none;
+}
+
+.alarmas_container_show{
+display:block;
+}
+
+#result_container_pulso_ciclo{
+padding: 20px 15px 15px 0;
+	width: 960px;
+}
+#result_container{
+	padding: 20px 15px 15px 0;
+}
+
+#slider_content{
+width:960px;
+margin:auto;
+}
+
+#header{
+width:960px;
+height:160px;
+margin:auto;
+}
+#logo{
+clear:both;
+margin:auto;
+width:308px;
+}
+/*----------------------menu-------------------------*/
+.menu_es,
+.menu_gl{
+background:url(../images/menu_bg.gif) no-repeat center;
+width:340px;
+}
+
+.menu_en{
+background:url(../images/menu_bg_en.gif) no-repeat center;
+width:390px;
+}
+
+#menu{
+
+float:right;
+height:22px;
+padding:0;
+margin:0 20px 0 0;
+}
+#menu ul{
+list-style:none;padding:0px;margin:0px;display:block;
+}
+#menu ul li{
+list-style:none;display:inline;float:left;width:auto;padding:0px; font-size:12px; font-weight:bold; font-style:italic; line-height:18px;
+}
+#menu ul li.divider{
+list-style:none;display:inline;float:left;width:2px; height:22px; background:url(../images/menu_divider.gif) no-repeat center;padding:0px;
+}
+#menu ul li a{
+float:left;text-decoration:none;padding:0px 10px 0 10px;_padding:0px 9px 0 9px; color:#feecda;text-align:center;
+}
+#menu ul li a:hover{
+text-decoration:none;color: #fff;
+}
+#menu ul li a.current{
+float:left;text-decoration:none;padding:0px 10px 0 10px;_padding:0px 9px 0 9px;color: #fff;
+}
+
+div#list_pruebas {
+width:1023px;
+height:265px;
+padding:0px; 
+margin:0px;
+float:left; 
+position: relative;
+}
+/*-----------------slider----------------------*/
+div#slider {
+width:900px;
+height:265px;
+padding:0px; 
+margin:0px;
+float:left; 
+position: relative;
+}
+.stripViewer { 
+position: relative;
+overflow: hidden; 
+width:900px;
+height:265px;
+float: left;
+margin:0px;
+}
+.stripViewer .panelContainer { 
+position: relative;
+left: 0; top: 0;
+width: 100%; height: 100%;
+list-style-type: none;
+float: left; overflow: hidden;
+}
+.stripViewer .panelContainer .panel {
+float:left;
+overflow: hidden;
+position: relative;
+width:900px;
+height:265px;
+padding: 0px;
+}
+.stripNavL, .stripNavR {
+text-indent: -9000em;
+}
+div.featured-arrow {
+width:27px; height:89px;
+float: left;
+padding:70px 0px 0px 0px;
+}
+.csw {width: 100%; height: 100%; overflow: hidden; float: left;}
+.csw .loading { margin: 100px 0 300px 0; text-align: center; color: #fff; font-weight: bold;font-size: 12px; }
+
+.tab{
+width:239px;
+height:236px;
+float:left;
+margin:0 32px 0 29px;
+_margin:0 32px 0 19px;
+}
+
+#tab_1_gl{
+background:url(../images/tab_pruebas_gl.gif) no-repeat center;
+}
+#tab_1_es{
+background:url(../images/tab_pruebas_es.png) no-repeat center;
+}
+#tab_1_en{
+background:url(../images/tab_pruebas_en.png) no-repeat center;
+}
+
+#tab_2_gl,
+#tab_2_es{
+background:url(../images/tab_historial.png) no-repeat center;
+}
+#tab_2_en{
+background:url(../images/tab_historial_en.png) no-repeat center;
+}
+
+#tab_3_gl,
+#tab_3_es{
+background:url(../images/tab_consulta.png) no-repeat center;
+}
+#tab_3_en{
+background:url(../images/tab_consulta_en.png) no-repeat center;
+}
+
+.tabPrueba1{
+width:280px;
+height:280px;
+float:left;
+margin:0 32px 0 29px;
+_margin:0 32px 0 19px;
+background:url(../images/boton_bascula.gif) no-repeat center;
+}
+.tabPrueba2{
+width:280px;
+height:280px;
+float:left;
+margin:0 32px 0 29px;
+_margin:0 32px 0 19px;
+background:url(../images/boton_pulso.gif) no-repeat center;
+}
+.tabPrueba3{
+width:280px;
+height:280px;
+float:left;
+margin:0 32px 0 29px;
+_margin:0 32px 0 19px;
+background:url(../images/boton_bascula_pulso.png) no-repeat center;
+}
+.main_content{
+width:898px;
+padding:0px;
+clear:both;
+margin:auto;
+background:url(../images/center_bg.jpg) no-repeat center top;
+}
+.main_content_index{
+width:918px;
+padding:0px;
+clear:both;
+margin:auto;
+background:url(../images/center_bg.jpg) no-repeat center top;
+}
+.main_content_pulso_ciclo{
+width:870px;
+padding:0px;
+clear:both;
+margin:auto;
+background:url(../images/center_bg.jpg) no-repeat center top;
+}
+
+
+.tablas{
+float:left;
+padding:10px 0 0 90px;
+}
+.tablas_pulso{
+float:left;
+padding:10px 0 0 200px;
+}
+.left_content{
+width:375px;
+float:left;
+padding:15px 0 30px 20px;
+}
+.right_content{
+width:430px;
+float:left;
+padding:15px 0 30px 20px;
+}
+.wide_content{
+width:878px;
+float:left;
+padding:15px 0 30px 20px;
+}
+.wide_content_pulso_ciclo{
+width:1200px;
+float:left;
+padding:15px 0 30px 20px;
+}
+
+.title{
+font-size:18px;
+color:#e77330;
+clear:both;
+padding:5px 0 5px 0px;
+}
+
+.title_siguiente_prueba{
+font-size:18px;
+color:#e77330;
+clear:both;
+padding:5px 0 5px 10px;	
+}
+
+img.left_img{
+float:left;
+padding:0 10px 0 0;
+}
+.banner{
+width:474px;
+height:106px;
+float:left;
+background:url(../images/banner_bg.jpg) no-repeat center;
+margin:10px 0 15px 0px;
+}
+img.news_icon{
+float:left;
+padding:15px 4px 0 0;
+}
+p.banner_content{
+width:365px;
+float:left;
+padding:15px 0 0 2px;
+}
+.project_box{
+width:430px;
+float:left;
+clear:both;
+padding:10px 0 30px 0;
+margin:0 0 20px 0;
+border-bottom:1px #2c2c88 solid;
+background:url(../images/d_border.jpg) no-repeat center bottom;
+}
+.project_title_tab{
+width:436px;
+float:left;
+height:22px;
+}
+.project_bullet{
+width:22px;
+height:22px;
+line-height:22px;
+background:url(../images/blue_bullet.jpg) no-repeat center;
+text-align:center;
+color:#FFFFFF;
+float:left;
+font-weight:bold;
+}
+.enlace_tab{
+width:64px;
+height:22px;
+line-height:22px;
+background:url(../images/base_enlace.gif) no-repeat center;
+text-align:center;
+color:#E77330;
+float:left;
+font-weight:bold;
+}
+.project_title{
+float:left;
+padding:2px 0 0 7px;
+font-size:14px;
+font-weight:bold;
+color:#2C2C88;
+}
+.project_content{
+clear:both;
+padding:10px 0 0 0;
+}
+.project_content p{
+padding:0px;
+}
+/*-----------------------contact_form-------------------*/
+#contact_form{
+width:370px;
+height:auto;
+padding:20px 0 0 10px;
+}
+.form_row{
+float:left;
+padding:7px 0 7px 0;
+}
+label{
+width:60px;
+float:left;
+padding:3px 5px 0 0;
+color:#89613a;
+text-align:right;
+font-weight:bold;
+}
+input.contact_input{
+width:293px;
+height:24px;
+float:left;
+border:1px #c3b688 solid;
+background-color:#f2edd1;
+color: #89613a;
+}
+textarea.contact_textarea{
+width:293px;
+height:80px;
+float:left;
+border:1px #c3b688 solid;
+background-color:#f2edd1;
+color: #89613a;
+}
+input.send_message{
+float:right;
+padding:10px 10px 0 0;
+}
+
+/*------------footer----------------*/
+.footer{
+width:960px;
+height:96px;
+clear:both;
+margin:auto;
+color:#876039;
+font-weight:bold;
+font-style:italic;
+}
+.right_footer{
+float:right;
+padding:20px 60px 0 0;
+}
+.right_footer a{
+padding:0 10px 0 10px;
+text-decoration:none;
+font-weight:bold;
+font-style:italic;
+color:#876039;
+}
+

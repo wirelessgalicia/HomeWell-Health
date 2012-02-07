@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simple Service
+Bundle-SymbolicName: org.springframework.osgi.springdm.simple
+Bundle-Version: 1.0.0
+Import-Package: es.sergas.chuac.logos.modelo.evento,
+ es.sergas.chuac.logos.modelo.gestorpruebas.vo,
+ es.sergas.chuac.logos.modelo.tramaprmsalida.vo,
+ es.sergas.chuac.logos.modelo.wireadminmanager.services,
+ es.sergas.chuac.logos.servicios.wireadminmanager.vista.eventos,
+ es.sergas.chuac.logos.servicios.wireadminmanager.vista.resultados,
+ org.apache.log4j;version="1.2.15",
+ org.osgi.framework,
+ org.osgi.service.wireadmin,
+ org.slf4j,
+ org.springframework.osgi.context
+Export-Package: com.wirelessgalicia.logos.vista.web.almacen,
+ com.wirelessgalicia.logos.vista.web.consumers
+ 

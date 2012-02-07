@@ -1,0 +1,53 @@
+Manifest-Version: 1.0
+Bundle-Version: 1.0
+Bundle-SymbolicName: homewellhealth
+Bundle-Name: Simple Web MVC Bundle
+Bundle-Vendor: Spring Framework
+Bundle-ManifestVersion: 2
+Bundle-ClassPath: WEB-INF/classes/, WEB-INF/lib/*.jar
+Import-Package: com.wirelessgalicia.logos.vista.web.almacen,
+ com.wirelessgalicia.logos.vista.web.consumers,
+ es.sergas.chuac.logos.configuracionpruebas.fachadaprincipal,
+ es.sergas.chuac.logos.modelo.fase.dao,
+ es.sergas.chuac.logos.modelo.prmsalida.dao,
+ es.sergas.chuac.logos.modelo.prueba.dao,
+ es.sergas.chuac.logos.modelo.tipofase.dao,
+ es.sergas.chuac.logos.modelo.tipoprueba.dao,
+ es.sergas.chuac.logos.modelo.wireadminmanager.services,
+ es.sergas.chuac.logos.servicios.gestorpruebas,
+ es.sergas.chuac.logos.util.exception,
+ javax.servlet.http;version="2.5.0",
+ javax.servlet.jsp;version="2.0.0",
+ javax.servlet.jsp.jstl.core;version="1.1.2",
+ javax.servlet.jsp.jstl.fmt;version="1.1.2",
+ javax.servlet.jsp.jstl.tlv;version="1.1.2",
+ javax.servlet.jsp.tagext,
+ org.apache.taglibs.standard.resources;version="1.1.2",
+ org.apache.taglibs.standard.tag.rt.core;version="1.1.2",
+ org.apache.taglibs.standard.tei;version="1.1.2",
+ org.apache.taglibs.standard.tlv;version="1.1.2",
+ org.codehaus.jackson,
+ org.springframework.beans.factory.annotation,
+ org.springframework.beans.factory.config,
+ org.springframework.context.annotation,
+ org.springframework.context.support,
+ org.springframework.core,
+ org.springframework.http,
+ org.springframework.http.client,
+ org.springframework.http.client.support,
+ org.springframework.http.converter.json,
+ org.springframework.http.converter.xml,
+ org.springframework.osgi.web.context.support;version="1.1.0",
+ org.springframework.stereotype;version="2.5.5",
+ org.springframework.util,
+ org.springframework.web.bind.annotation;version="2.5.5",
+ org.springframework.web.client,
+ org.springframework.web.context;version="2.5.5",
+ org.springframework.web.servlet;version="2.5.5",
+ org.springframework.web.servlet.view;version="2.5.5"
+Require-Bundle: com.springsource.javax.servlet;bundle-version="2.5.0",
+ LOGOSModeloVos,
+ com.springsource.org.codehaus.jackson;bundle-version="1.0.0",
+ com.springsource.org.codehaus.jackson.mapper;bundle-version="1.0.0",
+ org.springframework.web.servlet
+ 
