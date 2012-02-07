@@ -1,0 +1,7 @@
+<?php
+
+$GLTCN_pagina_privada=0;
+require_once('../aplicacion_comienzo.php');
+
+print Doctrine::generateModelsFromYaml(RUTA_SCHEMA, RUTA_MODELS, array('generateTableClasses' => true));
+print "Se ha generado el modelo\n";

@@ -1,0 +1,17 @@
+<?php
+
+class MadeByBehavior extends Doctrine_Template
+{
+    public function setTableDefinition()
+    {
+        $this->hasColumn('made_by', 'integer', 4);
+        $this->addListener(new MadeByListener());
+    }
+
+    public function setUp()
+    {
+        #$this->hasOne('Usuarios', array('local' => 'made_by',
+        #                                             'foreign' => 'id'));
+    }
+}
+

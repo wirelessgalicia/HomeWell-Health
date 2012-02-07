@@ -1,0 +1,16 @@
+<?php
+
+class MadeByListener extends Doctrine_Record_Listener
+{
+    public function preInsert(Doctrine_Event $event)
+    {
+	global $GLTCN;
+        $event->getInvoker()->made_by = $GLTCN['id_usuario'];
+    }
+    public function preUpdate(Doctrine_Event $event)
+    {
+	global $GLTCN;
+        $event->getInvoker()->made_by = $GLTCN['id_usuario'];
+    }
+}
+

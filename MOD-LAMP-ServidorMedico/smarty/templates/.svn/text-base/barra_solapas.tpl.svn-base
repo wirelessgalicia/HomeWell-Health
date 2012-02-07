@@ -1,0 +1,21 @@
+            <div id="solapas">
+
+                <div id="crumbsWrapper">
+                    <div id="crumbsBlock">
+
+                        <div id="crumbs" style="width:95%;">
+                                <div style="text-align:right;color:#fff;font-weight:normal;">
+                                    Logeado como usuario
+                                    <span style="color:#bbb;">
+                                        {$usuario.usuario}
+                                    </span>
+                                    -
+                                    <a href="logout.php" class="boton" style="color:red;">(Salir)</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminador">&nbsp;</div>
+            </div>
+

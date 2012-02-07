@@ -1,0 +1,25 @@
+<?php
+/**
+ * INCLUDES
+ */
+
+require_once('../includes/aplicacion_comienzo.php');
+error_reporting(E_ALL);
+
+/**
+ * ENTRADA
+ */
+
+$idPruebaPaciente = FuncionesGenerales::leerParametroNumerico('id',0);
+
+if ( ! $idPruebaPaciente > 0) {
+    FuncionesGenerales::generarError('idPruebaPaciente incorrecto', __LINE__, __FILE__);
+}
+
+/**
+ * MAIN
+ */
+
+$pruebaPaciente = PruebasProgramadasControl::obtenerRegistroPorId($idPruebaPaciente);
+
+echo $pruebaPaciente->enviarRegistro();

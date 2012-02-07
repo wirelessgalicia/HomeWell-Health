@@ -1,0 +1,14 @@
+<?php
+
+$GLTCN_pagina_privada=0;
+require_once('../aplicacion_comienzo.php');
+
+$strSQL = Doctrine::generateSqlFromModels(RUTA_MODELS);
+
+system("mysql -u root -psierradegador -e 'drop database pruebas;'");
+system("mysql -u root -psierradegador -e 'create database pruebas;'");
+system("mysql -u root -psierradegador pruebas -e '$strSQL'");
+
+print $strSQL;
+
+print "\n";

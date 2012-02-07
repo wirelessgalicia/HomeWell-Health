@@ -1,0 +1,509 @@
+{* ../../www/pacientes_ver.php *}
+
+{* Javascript {{{ *}
+<script language="Javascript">
+{literal}
+
+function borrarPaciente(id_paciente){
+    // {{{
+    if(confirm('¿Desea borrar definitivamente este registro?')){
+        document.location.href='pacientes_ver.php?id=' + id_paciente + '&borrarPaciente=1';
+    }
+    // }}}
+}
+
+$(document).ready(function() {
+    $('ul.tabs').tabs('div.panes > div');
+});
+
+</script>
+{/literal}
+{* Fin Javascript }}} *}
+
+<h2 class="titulo_seccion">
+    Ficha del paciente:
+
+    <span class="resaltar">
+        {$paciente.nombre}
+        {$paciente.apellidos}
+    </span>
+</h2>
+
+<div style="margin:0;">
+    <span class="btn btn-medium-white" style="float:right;">
+        <a href="pacientes.php">Volver al listado de pacientes</a>
+    </span>
+</div>
+
+<div class="wrap">
+    <ul class="tabs">
+        <li><a href="#ficha" class="w3">Datos paciente</a></li>
+        <li><a href="#formulario" class="w3">Modificar</a></li>
+    </ul>
+
+    <div class="panes">
+        <div id="ficha">
+            {* Ficha Registro {{{ *} 
+            {* nombre - apellidos - estado {{{ *}
+            <table class="ficha">
+                <tr>
+                    <th valign="top">
+                        Nombre:
+                    </th>
+
+                    <td>
+                        {$paciente.nombre}
+                    </td>
+
+                    <th valign="top">
+                        Apellidos:
+                    </th>
+
+                    <td>
+                        {$paciente.apellidos}
+                    </td>
+
+                    <th valign="top">
+                        Estado:
+                    </th>
+
+                    <td style="width:140px;">
+                        {if $paciente.estado == 'A'}
+                            <b>Activo</b>
+                        {elseif $paciente.estado == 'P'}
+                            Proceso alta
+                        {else}
+                            Inactivo
+                        {/if}
+                    </td>
+                </tr>
+            </table>
+            {* }}} *}
+            {* fecha_nacimiento - sexo - no_tis {{{ *}
+            <table class="ficha">
+                <tr>
+                    <th valign="top">
+                        Nacimiento:
+                    </th>
+
+                    <td>
+                        <b>({$paciente->calcularEdad()} años)</b>
+                        {$paciente.fecha_nacimiento|date_format:"%d/%m/%Y"}
+                    </td>
+
+                    <th valign="top">
+                        Sexo:
+                    </th>
+
+                    <td>
+                        {$paciente.sexo}
+                    </td>
+
+                    <th valign="top">
+                        TIS:
+                    </th>
+
+                    <td>
+                        {$paciente.no_tis}
+                    </td>
+                    <th valign="top">
+                        DNI:
+                    </th>
+
+                    <td>
+                        {$paciente.dni}
+                    </td>
+                </tr>
+            </table>
+            {* }}} *}
+            <br>
+            {* domicilio {{{ *}
+            <table class="ficha">
+                <tr>
+                    <th valign="top">
+                        Domicilio:
+                    </th>
+
+                    <td>
+                        {$paciente.domicilio}
+                    </td>
+                </tr>
+            </table>
+            {* }}} *}
+            {* telefono1 - telefono2 {{{ *}
+            <table class="ficha">
+                <tr>
+                    <th valign="top">
+                        Teléfono 1:
+                    </th>
+
+                    <td>
+                        {$paciente.telefono1}
+                    </td>
+
+                    <th valign="top">
+                        Teléfono 2:
+                    </th>
+
+                    <td>
+                        {$paciente.telefono2}
+                    </td>
+                </tr>
+            </table>
+            {* }}} *}
+            {* Fin Ficha Registro }}} *}
+        </div>
+
+        <div id="formulario">
+            {* Formulario Registro {{{ *}
+
+            {assign var='form' value=$arrModificacion}
+            <form {$form.attributes} style="display:inline;">
+            {$form.elements_name._qf__modificar_registro.html}
+            {* nombre - apellidos - estado {{{ *}
+            <table class="ficha">
+                <tr>
+                    <th valign="top">
+                        Nombre:
+                    </th>
+
+                    <td>
+                        {$form.elements_name.nombre.html}
+
+                        {if $form.elements_name.nombre.error}
+                        <div class="error_formulario">
+                            {$form.elements_name.nombre.error}
+                        </div>
+                        {/if}
+                    </td>
+
+                    <th valign="top">
+                        Apellidos:
+                    </th>
+
+                    <td>
+                        {$form.elements_name.apellidos.html}
+
+                        {if $form.elements_name.apellidos.error}
+                        <div class="error_formulario">
+                            {$form.elements_name.apellidos.error}
+                        </div>
+                        {/if}
+                    </td>
+
+                    <th valign="top">
+                        Estado:
+                    </th>
+
+                    <td style="width:140px;">
+                        {if $paciente.estado == 'A'}
+                            <b>Activo</b>
+                        {elseif $paciente.estado == 'P'}
+                            Proceso alta
+                        {else}
+                            Inactivo
+                        {/if}
+                    </td>
+                </tr>
+            </table>
+            {* }}} *}
+            {* fecha_nacimiento - sexo {{{ *}
+            <table class="ficha">
+                <tr>
+                    <th valign="top">
+                        Nacimiento:
+                    </th>
+
+                    <td>
+                        {$form.elements_name.fecha_nacimiento.html}
+
+                        {if $form.elements_name.fecha_nacimiento.error}
+                        <div class="error_formulario">
+                            {$form.elements_name.fecha_nacimiento.error}
+                        </div>
+                        {/if}
+                    </td>
+
+                    <th valign="top">
+                        Sexo:
+                    </th>
+
+                    <td>
+                        {$form.elements_name.sexo.html}
+
+                        {if $form.elements_name.sexo.error}
+                        <div class="error_formulario">
+                            {$form.elements_name.sexo.error}
+                        </div>
+                        {/if}
+                    </td>
+
+                </tr>
+            </table>
+            {* }}} *}
+            {* no_tis - dni {{{ *}
+            <table class="ficha">
+                <tr>
+                    <th valign="top">
+                        TIS:
+                    </th>
+
+                    <td>
+                        {$form.elements_name.no_tis.html}
+
+                        {if $form.elements_name.no_tis.error}
+                        <div class="error_formulario">
+                            {$form.elements_name.no_tis.error}
+                        </div>
+                        {/if}
+                    </td>
+
+                    <th valign="top">
+                        DNI:
+                    </th>
+
+                    <td>
+                        {$form.elements_name.dni.html}
+
+                        {if $form.elements_name.dni.error}
+                        <div class="error_formulario">
+                            {$form.elements_name.dni.error}
+                        </div>
+                        {/if}
+                    </td>
+                </tr>
+            </table>
+            {* }}} *}
+            <br>
+            {* domicilio {{{ *}
+            <table class="ficha">
+                <tr>
+                    <th valign="top">
+                        Domicilio:
+                    </th>
+
+                    <td>
+                        {$form.elements_name.domicilio.html}
+
+                        {if $form.elements_name.domicilio.error}
+                        <div class="error_formulario">
+                            {$form.elements_name.domicilio.error}
+                        </div>
+                        {/if}
+                    </td>
+                </tr>
+            </table>
+            {* }}} *}
+            {* telefono1 - telefono2 {{{ *}
+            <table class="ficha">
+                <tr>
+                    <th valign="top">
+                        Teléfono 1:
+                    </th>
+
+                    <td>
+                        {$form.elements_name.telefono1.html}
+
+                        {if $form.elements_name.telefono1.error}
+                        <div class="error_formulario">
+                            {$form.elements_name.telefono1.error}
+                        </div>
+                        {/if}
+                    </td>
+
+                    <th valign="top">
+                        Teléfono 2:
+                    </th>
+
+                    <td>
+                        {$form.elements_name.telefono2.html}
+
+                        {if $form.elements_name.telefono2.error}
+                        <div class="error_formulario">
+                            {$form.elements_name.telefono2.error}
+                        </div>
+                        {/if}
+                    </td>
+                </tr>
+            </table>
+            {* }}} *}
+        {* Botón Enviar {{{ *}
+            <br>
+            <table style="width:100%;">
+                <tr>
+                    <td>
+                        <span class="btn btn-medium-green">
+                            {$form.elements_name.enviar.html}
+                        </span>
+                    </td>
+                    <td style="text-align:right;">
+                        <a href="javascript:borrarPaciente({$paciente.id});" class="boton_texto" style="color:red;">
+                        [Borrar registro]
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        {* Fin Botón Enviar *}
+
+        </form>
+
+        {* Fin Formulario Registro }}} *}
+            </form>
+            {* Fin Formulario Registro }}} *}
+        </div>
+    </div>
+</div>
+
+<div class="barraBotones" style="margin-top:10px;margin-bottom:10px;">
+
+    <span style="float:left;font-weight:bold;">
+        Histórico de pruebas del paciente:
+        &nbsp; &nbsp;
+    </span>
+
+    {foreach item=tipo from=$tiposPrueba}
+    <span class="btn btn-medium-white" style="margin-left:20px;">
+        <a href="pruebas_pacientes.php?id_paciente={$paciente.id}&id_tipo={$tipo.id_tipo_prueba}">{$tipo.nombre}</a>
+    </span>
+    {/foreach}
+</div>
+
+{* Cabecera pruebas programadas {{{ *}
+<table style="width:100%">
+    <tr>
+        <td>
+            <h2 class="titulo_seccion">
+                Pruebas programadas al paciente:
+
+                <span class="resaltar">
+                    {$paciente.nombre}
+                    {$paciente.apellidos}
+                </span>
+            </h2>
+        </td>
+        <td>
+            <span class="btn btn-medium-green" style="float:right;">
+                <a href="pruebas_pacientes_altas.php?paciente={$paciente.id}">
+                    Programar nueva prueba al paciente
+                </a>
+            </span>
+        </td>
+    </tr>
+</table>
+{* }}} *}
+
+{* Formulario de búsqueda {{{ *}
+{assign var='form' value=$formFiltrado}
+
+    <div class="destacado">
+        <form {$form.attributes} style="padding:0;margin:0;">
+        {$form.elements_name._qf__filtrar_registros.html}
+        {$form.elements_name.id.html}
+        {* tipo {{{ *}
+            <table width="99%" class="formulario">
+                <tr>
+                    <td align="left" style="line-height:25px;">
+                        Tipo de prueba:
+                        {$form.elements_name.id_tipo_prueba.html}
+                        &nbsp;&nbsp;
+                        {$form.elements_name.enviar.html}
+                    </td>
+                </tr>
+            </table>
+        {*}}}*}
+        </form>
+    </div>
+
+{* }}} *}
+{* Listado de registros {{{ *}
+
+<div class="paginador">
+{* Paginador {{{*}
+
+    <b>{$listado.paginador->getNumResults()}</b> pruebas  
+
+    {if $listado.paginador->haveToPaginate()}
+        en {$listado.paginador->getLastPage()}
+        páginas
+        &nbsp; &nbsp; &nbsp;
+        {$listado.enlacesPaginador}
+    {/if}
+
+{* }}} *}
+</div>
+
+<br>
+
+<table width="100%" class="resultados" cellspacing="0" cellpadding="0">
+{* Tabla Resultados {{{*}
+    <tr>
+
+        <th style="width:180px;">
+            {$listado.orden->table('fecha')}
+        </th>
+        <th>
+            {$listado.orden->table('tipo')}
+        </th>
+        <th style="width:80px;text-align:center;">
+            {$listado.orden->table('estado')}
+        </th>
+        <th width="50" style="text-align:center;">
+            &nbsp;
+        </th>
+    </tr>
+
+    {if $listado.paginador->getNumResults() > 0}
+    {foreach item=registro from=$listado.coleccion}
+    <tr class="{cycle values="fila_par,fila_impar"}">
+
+        <td>
+            <b>{$registro.fecha|date_format:"%d/%m/%Y"}</b>
+            {$registro.fecha|date_format:"%H:%M"}
+        </td>
+        <td>
+            {$registro.PruebasTipos.nombre}
+        </td>
+        <td style="text-align:center;">
+            {$registro->descripcionEstado()}
+        </td>
+        <td style="padding-left:15px;">
+            <span class="btn btn-medium-white">
+                <a href="pruebas_pacientes_ver.php?id={$registro.id}">
+                    Ver
+                </a>
+            </span>
+        </td>
+    </tr>
+    {/foreach}
+    {else}
+    <tr>
+        <td colspan="7" style="text-align:center;padding:15px;">
+            No se ha encontrado ningún registro.
+        </td>
+    </tr>
+    {/if}
+{*}}}*}
+</table>
+
+<br>
+
+<div class="paginador">
+{* Paginador {{{*}
+    <b>{$listado.paginador->getNumResults()}</b> pruebas  
+
+    {if $listado.paginador->haveToPaginate()}
+        en {$listado.paginador->getLastPage()}
+        páginas
+        &nbsp; &nbsp; &nbsp;
+        {$listado.enlacesPaginador}
+    {/if}
+{* }}} *}
+</div>
+
+{* }}} *}
+
+<div class="botones_final">
+    <span class="btn btn-medium-white">
+        <a href="pacientes.php">Volver al listado de pacientes</a>
+    </span>
+</div>

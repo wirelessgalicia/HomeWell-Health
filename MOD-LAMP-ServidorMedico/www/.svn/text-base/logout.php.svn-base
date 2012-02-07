@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * INCLUDES
+ */
+
+$GLTCN_pagina_privada=0;
+require_once('../includes/aplicacion_comienzo.php');
+
+/**
+ * MAIN
+ */
+ 
+// Destruyo las variables de sesion para desconectar al usurio
+
+$sesion->destroy();
+
+// Redirigimos
+
+header('Location: login.php');
+exit;

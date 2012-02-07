@@ -1,0 +1,92 @@
+---
+
+# vim: set foldmethod=marker:
+
+# 
+# Definición del schema
+#
+
+
+Usuarios:
+  tableName: usuarios
+  columns:
+    id_medico: integer(4)
+    nombre: string(255)
+    apellidos: string(255)
+    alias: string(255)
+    usuario: string(255)
+    clave: string(255)
+  actAs:
+    MadeByBehavior:
+    SoftDelete:
+    Timestampable:
+  options:
+    type: MyISAM
+    collate: utf8_general_ci
+
+
+Pacientes:
+  tableName: pacientes
+  columns:
+    id_medico: integer(4)
+    nombre: string(255)
+    apellidos: string(255)
+    fecha_nacimiento: date
+    sexo: string(1)
+    no_tis: string(32)
+    dni: string(32)
+    domicilio: string(4000)
+    telefono1: string(13)
+    telefono2: string(13)
+    estado: string(1)
+    codigo: string(100)
+  actAs:
+    MadeByBehavior:
+    SoftDelete:
+    Timestampable:
+  options:
+    type: MyISAM
+    collate: utf8_general_ci
+
+
+PruebasTipos:
+  tableName: pruebas_tipos
+  columns:
+    id_tipo_prueba:
+      type: string(32)
+      primary: true
+    codigo: string(100)
+    nombre: string(255)
+    descripcion: string(255)
+    duracion: integer(4)
+  actAs:
+    MadeByBehavior:
+    SoftDelete:
+    Timestampable:
+  options:
+    type: MyISAM
+    collate: utf8_general_ci
+
+
+PruebasProgramadas:
+  tableName: pruebas_programadas
+  columns:
+    id_tipo_prueba: string(32)
+    id_paciente: integer(4)
+    fecha: timestamp
+    estado: string(1) # (P)ROGRAMADA, (I)NICIADA, (F)INALIZADA, (C)ANCELADA
+    resultado: string(4000)
+  relations:
+    PruebasTipos:
+      local: id_tipo_prueba
+      foreign: id_tipo_prueba
+    Pacientes:
+      local: id_paciente
+      foreign: id
+  actAs:
+    MadeByBehavior:
+    SoftDelete:
+    Timestampable:
+  options:
+    type: MyISAM
+    collate: utf8_general_ci

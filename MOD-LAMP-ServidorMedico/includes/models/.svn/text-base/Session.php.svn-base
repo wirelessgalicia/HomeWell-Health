@@ -1,0 +1,33 @@
+<?php
+
+class Session {
+
+    function Session () {
+        session_start();
+    }
+
+    function set ($name,$value) {
+        $_SESSION['sesion_' . $name]=$value;
+    }
+
+    function get ($name) {
+        if ( isset ( $_SESSION['sesion_' . $name] ) )
+            return $_SESSION['sesion_' . $name];
+        else
+            return false;
+    }
+
+    function del ($name) {
+        if ( isset ( $_SESSION['sesion_' . $name] ) ) {
+            unset ( $_SESSION['sesion_' . $name] );
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function destroy () {
+        $_SESSION = array();
+        session_destroy();
+    }
+}

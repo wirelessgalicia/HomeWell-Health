@@ -1,0 +1,30 @@
+<?php
+
+class PruebasTiposControl
+{
+
+    public static function popularSelect($opcion_defecto) {
+        // {{{
+        $q = Doctrine_Query::create()
+            ->select('tip.id_tipo_prueba, tip.nombre')
+            ->from('PruebasTipos tip')
+            ->orderBy('tip.id_tipo_prueba asc');
+
+        $arrTipos = $q->execute(array(), Doctrine::HYDRATE_NONE);
+
+        $arrRespuesta = array();
+
+        if(!empty($opcion_defecto)){
+            $arrRespuesta[0] = $opcion_defecto;
+        }
+
+        foreach($arrTipos as $tipo){
+            $arrRespuesta[$tipo[0]] = $tipo[1];
+        }
+
+        return $arrRespuesta;
+
+        // }}}
+    }
+
+}

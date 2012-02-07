@@ -1,0 +1,48 @@
+<?php
+// ../smarty/templates/pacientes.tpl
+
+/**
+ * INCLUDES
+ */
+
+require_once('../includes/aplicacion_comienzo.php');
+
+/**
+ * MAIN
+ */
+
+// Formulario Filtrado {{{
+
+$formFiltrado = new HTML_QuickForm( 
+    'filtrar_registros', 
+    'get', 
+    basename(__FILE__),
+    null,
+    null,
+    true
+);
+
+$formFiltrado->addElement('text', 'nombre', null, 'maxwidth="255" size="10"');
+$formFiltrado->addElement('text', 'apellidos', null, 'maxwidth="255" size="20"');
+$formFiltrado->addElement('text', 'no_tis', null, 'maxwidth="255" size="10"');
+$formFiltrado->addElement('text', 'domicilio', null, 'maxwidth="255" size="20"');
+
+$formFiltrado->addElement('submit', 'enviar' , 'Filtrar');
+
+// Filtros del formulario:
+
+$formFiltrado->applyFilter('__ALL__','trim');
+
+$arrFormFiltrado= FuncionesGenerales::formularioAArray($formFiltrado);
+$smarty->assign('formFiltrado', $arrFormFiltrado);
+
+// }}}
+// Listado de pacientes {{{
+
+$listado = PacientesControl::listar($usuario->id_medico, $formFiltrado->getSubmitValues(), 15);
+$smarty->assign('listado', $listado);
+
+// }}}
+
+$smarty->assign('principal', 'pacientes.tpl');
+$smarty->display('layout.tpl');

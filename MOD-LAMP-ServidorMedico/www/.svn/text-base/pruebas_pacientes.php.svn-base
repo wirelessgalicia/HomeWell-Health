@@ -1,0 +1,46 @@
+<?php
+// ../smarty/templates/pruebas_pacientes.tpl
+
+/**
+ * INCLUDES
+ */
+
+require_once('../includes/aplicacion_comienzo.php');
+
+/**
+ * ENTRADA
+ */
+
+$idPaciente = FuncionesGenerales::leerParametroNumerico('id_paciente',0);
+
+if ( ! $idPaciente > 0) {
+    FuncionesGenerales::generarError('idPaciente incorrecto', __LINE__, __FILE__);
+}
+
+$idTipo = FuncionesGenerales::leerParametroNumerico('id_tipo',0);
+
+if ( ! $idTipo > 0) {
+    FuncionesGenerales::generarError('idTipo incorrecto', __LINE__, __FILE__);
+}
+
+/**
+ * MAIN
+ */
+
+$paciente = PacientesControl::obtenerRegistroPorId($idPaciente);
+$smarty->assign('paciente', $paciente);
+
+// Nos aseguramos que el paciente pertenece al medico
+if ($paciente->id_medico != $usuario->id_medico) {
+    header('Location: pacientes.php');
+}
+
+// Listado de pruebas {{{
+
+$listado = PruebasProgramadasControl::historial($idPaciente, $idTipo, array(), 15);
+$smarty->assign('listado', $listado);
+
+// }}}
+
+$smarty->assign('principal', 'pruebas_pacientes.tpl');
+$smarty->display('layout.tpl');

@@ -1,0 +1,162 @@
+<?php
+// ../smarty/templates/pacientes_ver.tpl
+
+/**
+ * INCLUDES
+ */
+
+require_once('../includes/aplicacion_comienzo.php');
+
+/**
+ * ENTRADA
+ */
+
+$idPaciente = FuncionesGenerales::leerParametroNumerico('id',0);
+
+if ( ! $idPaciente > 0) {
+    FuncionesGenerales::generarError('idPaciente incorrecto', __LINE__, __FILE__);
+}
+
+$borrarPaciente = FuncionesGenerales::leerParametroNumerico('borrarPaciente',0);
+
+/**
+ * MAIN
+ */
+
+$paciente = PacientesControl::obtenerRegistroPorId($idPaciente);
+$smarty->assign('paciente', $paciente);
+
+// Nos aseguramos que el paciente pertenece al medico
+if ($paciente->id_medico != $usuario->id_medico) {
+    header('Location: pacientes.php');
+}
+
+// POSIBLE: Borrar paciente {{{
+if ($borrarPaciente == 1){
+    $paciente->delete();
+    Header('Location: pacientes.php');
+    exit;
+}
+// }}}
+// Formulario Modificacion {{{
+
+$opciones_fecha = array(
+    'language'  => 'es',
+    'format'    => 'dMY',
+    'minYear'   => 1900,
+    'maxYear'   => FuncionesGenerales::anoActual()+1,
+    'addEmptyOption' => true
+);
+
+$dia_actual = array(
+    'd' => date('d'),        
+    'M' => date('n'),
+    'Y' => date('Y')
+);
+
+$formModificacion =  new HTML_QuickForm( 
+    'modificar_registro', 
+    'post', 
+    basename(__FILE__) . '?id=' . $paciente->id .'#formulario',
+    null,
+    null,
+    true
+);
+
+$formModificacion->addElement('text', 'nombre', null, 'maxwidth="255" style="width:95%;"');
+$formModificacion->addElement('text', 'apellidos', null, 'maxwidth="255" style="width:95%;"');
+$formModificacion->addElement('date', 'fecha_nacimiento', null, $opciones_fecha);
+$formModificacion->addElement('select', 'sexo', null, array('M' => 'M', 'F' => 'F'));
+$formModificacion->addElement('text', 'no_tis', null, 'maxwidth="255" style="width:20em;"');
+$formModificacion->addElement('text', 'dni', null, 'maxwidth="255" style="width:20em;"');
+$formModificacion->addElement('textarea', 'domicilio', null, 'style="width:95%;height:4em;"');
+$formModificacion->addElement('text', 'telefono1', null, 'maxwidth="255" style="width:20em;"');
+$formModificacion->addElement('text', 'telefono2', null, 'maxwidth="255" style="width:20em;"');
+$formModificacion->addElement('submit', 'enviar' , 'Grabar cambios datos del paciente');
+
+// Reglas del formulario
+
+$formModificacion->addRule('nombre','Tiene que indica un nombre','required');
+$formModificacion->addRule('apellidos','Tiene que indica los apellidos','required');
+
+// Valores por defecto
+
+$arrValoresDefecto = array();
+$arrValoresDefecto['nombre'] = $paciente->nombre;
+$arrValoresDefecto['apellidos'] = $paciente->apellidos;
+$arrValoresDefecto['fecha_nacimiento'] = $paciente->fecha_nacimiento;
+$arrValoresDefecto['sexo'] = $paciente->sexo;
+$arrValoresDefecto['no_tis'] = $paciente->no_tis;
+$arrValoresDefecto['dni'] = $paciente->dni;
+$arrValoresDefecto['domicilio'] = $paciente->domicilio;
+$arrValoresDefecto['telefono1'] = $paciente->telefono1;
+$arrValoresDefecto['telefono2'] = $paciente->telefono2;
+
+$formModificacion->setDefaults($arrValoresDefecto);
+
+// Filtros del formulario
+
+$formModificacion->applyFilter('__ALL__','trim');
+
+if ($formModificacion->validate()) {
+
+    $arrValoresForm = $formModificacion->getSubmitValues();
+    $paciente->modificar($arrValoresForm);
+    Header('Location: pacientes_ver.php?id=' . $paciente->id .'#ficha');
+}
+
+$arrModificacion= FuncionesGenerales::formularioAArray($formModificacion);
+$smarty->assign('arrModificacion', $arrModificacion);
+
+// }}}
+
+// Formulario Filtrado {{{
+
+$formFiltrado = new HTML_QuickForm( 
+    'filtrar_registros', 
+    'get', 
+    basename(__FILE__),
+    null,
+    null,
+    true
+);
+
+$formFiltrado->addElement('hidden', 'id', $paciente->id);
+$formFiltrado->addElement('select', 'id_tipo_prueba', null, PruebasTiposControl::popularSelect('Todos los tipos'));
+
+$formFiltrado->addElement('submit', 'enviar' , 'Filtrar');
+
+// Filtros del formulario:
+
+$formFiltrado->applyFilter('__ALL__','trim');
+
+$arrFormFiltrado= FuncionesGenerales::formularioAArray($formFiltrado);
+$smarty->assign('formFiltrado', $arrFormFiltrado);
+
+// }}}
+// Listado de pruebas {{{
+
+$listado = $paciente->listarPruebas($formFiltrado->getSubmitValues(), 15);
+$smarty->assign('listado', $listado);
+
+// }}}
+
+// Listado de tipos de pruebas {{{
+
+$tiposPrueba = Doctrine_Query::create()
+    ->from('PruebasTipos')
+    ->orderBy('id_tipo_prueba asc')
+    ->execute()
+    ;
+
+$smarty->assign('tiposPrueba', $tiposPrueba);
+
+// }}}
+
+/**
+ * SALIDA
+ */
+
+$smarty->assign('tipo_menu', 'menu_principal.tpl');
+$smarty->assign('principal', 'pacientes_ver.tpl');
+$smarty->display('layout.tpl');

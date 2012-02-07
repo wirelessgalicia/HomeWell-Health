@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * INCLUDES
+ */
+
+$GLTCN_pagina_privada = 0;
+require_once('../../includes/aplicacion_comienzo.php');
+
+/*
+{"resultados":{
+    "Saturacion":[100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0],"Peso":[100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0],"Rpm":[100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0],"Pulso":[100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0]},"idPrueba":"id_prueba_1"}
+*/
+
+header('Content-Type:application/json');
+
+$datos = $HTTP_RAW_POST_DATA;
+$arrDatos = json_decode($HTTP_RAW_POST_DATA, true);
+
+if ($arrDatos === null) {
+    echo json_encode(array('ok' => 0, 'mensaje' => 'formato json no válido'));
+    exit;
+}
+
+if (! isset($arrDatos['idPrueba'])) {
+    echo json_encode(array('ok' => 0, 'mensaje' => 'no se indica idPrueba'));
+    exit;
+}
+
+if (!( is_numeric($arrDatos['idPrueba']) && $arrDatos['idPrueba'] > 0)) {
+    echo json_encode(array('ok' => 0, 'mensaje' => 'el valor de idPrueba no es válido'));
+    exit;
+}
+
+if (! isset($arrDatos['resultados'])) {
+    echo json_encode(array('ok' => 0, 'mensaje' => 'no hay clave resultados'));
+    exit;
+}
+
+if (count($arrDatos['resultados']) == 0) {
+    echo json_encode(array('ok' => 0, 'mensaje' => 'ningun relsultado'));
+    exit;
+}
+
+$idPruebaPaciente = $arrDatos['idPrueba'];
+
+$pruebaPaciente = PruebasProgramadasControl::obtenerRegistroPorId($idPruebaPaciente);
+
+if ($pruebaPaciente == false) {
+    echo json_encode(array('ok' => 0, 'mensaje' => 'no existe el idPrueba enviado'));
+    exit;
+}
+
+$pruebaPaciente->resultado = json_encode($arrDatos['resultados']);
+$pruebaPaciente->estado = 'F';
+$pruebaPaciente->save();
+
+
+// Guardo todo el mensaje
+
+$sql = 'INSERT registro SET fecha=now(), contenido=?';
+$q = $conn->prepare($sql);
+$q->execute(array($datos));
+
+echo json_encode(array('ok' => 1));
+exit;
