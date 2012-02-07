@@ -1,0 +1,61 @@
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.loggerbundle - INFO] BundleEvent.STARTED
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] Bundle starting
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] Configuring producer interface
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] Starting XBee module...
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] Opening serial port '/dev/ttyUSB0'
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - DEBUG] Got port Identifier for /dev/ttyUSB0
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] Configuring serial port '/dev/ttyUSB0'
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] XBee module started
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - DEBUG] Running reader thread
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] ServiceEvent.REGISTERED
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] Configuring consumer interface
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] ServiceEvent.REGISTERED
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - DEBUG] Not connected to any wire
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] Bundle started
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - INFO] BundleEvent.STARTED
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - INFO] Bundle starting
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - INFO] Configuring consumer interface
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - INFO] Starting database
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - DEBUG] SELECT * FROM sensors;
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - INFO] Loaded node list
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - DEBUG] 	IEEE ADDRESS		SHORT ADDRESS	(1 nodes)
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - DEBUG] 	0013A200405C9DF0	0001
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - INFO] ServiceEvent.REGISTERED
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - DEBUG] Not connected to any wire
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - INFO] Configuring producer interface
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - INFO] ServiceEvent.REGISTERED
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - DEBUG] New consumer wire connected (1 wires total)
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - DEBUG] New producer wire connected (1 wires total)
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - DEBUG] New consumer wire connected (1 wires total)
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.xbeeproducer - DEBUG] New producer wire connected (1 wires total)
+[Wed Jul 06 12:18:12 CEST 2011][org.apache.felix.configadmin - DEBUG] Scheduling task Update: pid=equinox.wireadmin.fpid.60beff4e-3971-4d7a-abc8-825cfaf44e14
+[Wed Jul 06 12:18:12 CEST 2011][org.apache.felix.configadmin - DEBUG] Running task Update: pid=equinox.wireadmin.fpid.60beff4e-3971-4d7a-abc8-825cfaf44e14
+[Wed Jul 06 12:18:12 CEST 2011][org.apache.felix.configadmin - DEBUG] Scheduling task Fire ConfigurationEvent: pid=equinox.wireadmin.fpid.60beff4e-3971-4d7a-abc8-825cfaf44e14
+[Wed Jul 06 12:18:12 CEST 2011][org.apache.felix.configadmin - DEBUG] Running task Fire ConfigurationEvent: pid=equinox.wireadmin.fpid.60beff4e-3971-4d7a-abc8-825cfaf44e14
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - INFO] BundleEvent.STARTED
+[Wed Jul 06 12:18:12 CEST 2011][org.eclipse.osgi - INFO] BundleEvent.STARTED
+[Wed Jul 06 12:18:12 CEST 2011][org.eclipse.osgi - INFO] FrameworkEvent.STARTED
+[Wed Jul 06 12:18:12 CEST 2011][org.eclipse.osgi - INFO] ServiceEvent.REGISTERED
+[Wed Jul 06 12:18:12 CEST 2011][org.gradiant.environmentalbundle - INFO] Starting core
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - INFO] Bundle stopping
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - INFO] Stopping core
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - INFO] Database stopped
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - INFO] Core stopped
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - DEBUG] Deleting wires
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - DEBUG] New consumer wire connected (0 wires total)
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - DEBUG] New producer wire connected (0 wires total)
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - DEBUG] New consumer wire connected (0 wires total)
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - DEBUG] New producer wire connected (0 wires total)
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - DEBUG] All wires deleted
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - INFO] Bundle stopped
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - INFO] ServiceEvent.UNREGISTERING
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - INFO] ServiceEvent.UNREGISTERING
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.environmentalbundle - INFO] BundleEvent.STOPPED
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - INFO] Closing XBee module
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - INFO] Closing serial port
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - INFO] Serial port /dev/ttyUSB0 closed
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - INFO] XBee module closed
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - INFO] ServiceEvent.UNREGISTERING
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - INFO] Bundle stopped
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - INFO] ServiceEvent.UNREGISTERING
+[Wed Jul 06 12:18:18 CEST 2011][org.gradiant.xbeeproducer - INFO] BundleEvent.STOPPED

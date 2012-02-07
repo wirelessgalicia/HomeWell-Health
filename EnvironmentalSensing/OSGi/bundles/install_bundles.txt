@@ -1,0 +1,12 @@
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/org.eclipse.equinox.common_3.6.0.v20100503.jar
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/org.eclipse.osgi.services_3.2.100.v20100503.jar
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/org.eclipse.equinox.io_1.0.200.v20100503.jar
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/org.eclipse.equinox.util_1.0.200.v20100503.jar
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/log.jar
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/org.apache.felix.configadmin-1.2.4.jar
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/org.apache.felix.wireadmin-0.9.0.jar
+
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/LoggerBundle-1.0.0.jar
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/XBeeProducer-1.0.0.jar
+install file:///home/dchaves/Proyectos/wITelligence/EnvironmentalSensing/OSGi/bundles/EnvironmentalBundle-1.0.0.jar
+
